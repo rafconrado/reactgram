@@ -14,7 +14,16 @@ const generateToken = (id) => {
 
 //register user and sign in
 const register = async (req, res) => {
-  res.send("Registro");
+ 
+   const {name, email, password} = req.body
+
+   //check if user exists
+   const user = await User.findOne({email})
+
+   if(user) {
+    res.status(422).json({errors: [ ]})
+   }
+
 };
 
 module.exports = {
