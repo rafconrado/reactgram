@@ -69,9 +69,9 @@ const login = async (req, res) => {
 
   //Return user with token
   res.status(201).json({
-    _id: newUser._id,
+    _id: user._id,
     profileImage: user.profileImage,
-    token: generateToken(newUser._id), 
+    token: generateToken(user._id), 
   });
 }
 
